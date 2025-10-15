@@ -1,0 +1,76 @@
+body {
+  background-color: #0a0a0f;
+  color: #d1f7ff;
+  font-family: 'Consolas', 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  padding: 1em;
+  text-align: center;
+  box-shadow: 0 0 20px #00fff2;
+}
+
+.glow {
+  text-shadow: 0 0 10px #00fff2, 0 0 20px #00adb5;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: #00fff2;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover, .active {
+  color: #fff;
+  text-shadow: 0 0 10px #00fff2;
+}
+
+main {
+  padding: 2em;
+  text-align: center;
+}
+
+.hero, section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 242, 0.2);
+  border-radius: 10px;
+  padding: 2em;
+  margin: 2em auto;
+  max-width: 800px;
+  box-shadow: 0 0 20px rgba(0, 255, 242, 0.1);
+}
+
+button {
+  background-color: #00adb5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #00fff2;
+  color: #000;
+}
+
+footer {
+  background: #111;
+  color: #888;
+  text-align: center;
+  padding: 1em;
+  border-top: 1px solid #00adb5;
+}
