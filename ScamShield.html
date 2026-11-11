@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScamShield</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        margin: 0;
+        background-color: #f4f7fc;
+        display: flex;
+        justify-content: center;
+        padding: 30px 15px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 700px;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: #0b3d91;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: #555;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    input[type="url"],
+    input[type="file"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    .hint {
+        font-size: 14px;
+        color: #666;
+        margin-top: 5px;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        background-color: #0b3d91;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #082e6d;
+    }
+
+    #scanning {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+        color: #0b3d91;
+        font-weight: bold;
+    }
+
+    .result {
+        display: none;
+        margin-top: 25px;
+        padding: 20px;
+        border-left: 6px solid #d9534f;
+        background-color: #fff3f3;
+        border-radius: 6px;
+    }
+
+    .status {
+        color: #d9534f;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .actions {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .actions a {
+        padding: 10px 15px;
+        background: #0b3d91;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+    }
+
+    .actions a.secondary {
+        background: #777;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>ScamShield</h1>
+    <p class="subtitle">
+        Check links and email PDFs for phishing attempts.
+    </p>
+
+    <div class="form-group">
+        <label for="link">Paste a Link</label>
+        <input type="url" id="link" placeholder="https://example.com">
+    </div>
+
+    <div class="form-group">
+        <label for="pdf">Upload Email PDF</label>
+        <input type="file" id="pdf" accept=".pdf">
+        <div class="hint">
+            Upload a PDF version of the email (saved using Print to PDF).
+        </div>
+    </div>
+
+    <button onclick="scan()">Scan</button>
+
+    <div id="scanning">Scanning...</div>
+
+    <div class="result" id="result">
+
+        <div class="status">
+            ⚠ Suspicious Link
+        </div>
+
+        <p>
+            <strong>Domain Checked:</strong>
+            campus-logln.com
+        </p>
+
+        <p>
+            <strong>Why this matters:</strong>
+            This domain appears similar to the official campus login domain
+            and may be attempting to impersonate it.
+        </p>
+
+        <p>
+            <strong>Recommended Action:</strong>
+            Do not enter your credentials. Access the official campus portal
+            directly instead.
+        </p>
+
+        <div class="actions">
+            <a href="#">Open Official Campus Portal</a>
+            <a href="#" class="secondary" onclick="location.reload()">
+                Scan Another
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function scan() {
+
+    document.getElementById("result").style.display = "none";
+    document.getElementById("scanning").style.display = "block";
+
+    setTimeout(() => {
+        document.getElementById("scanning").style.display = "none";
+        document.getElementById("result").style.display = "block";
+    }, 2000);
+}
+</script>
+
+</body>
+</html>
